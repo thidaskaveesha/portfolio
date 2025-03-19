@@ -34,8 +34,10 @@ body {
     opacity: 0.8;
     border-right: 3px solid #0f0f0f;
     display: inline-block;
-    overflow: hidden;
-    white-space: nowrap;
+    overflow-wrap: break-word; 
+    word-wrap: break-word; 
+    word-break: break-word; 
+    white-space: normal;
 }
 
 .loading-text{
@@ -44,6 +46,23 @@ body {
     font-size: 32px;
     color: #000000;
     position: absolute;
-    bottom: 5px;
-    right: 10px;
+    bottom: 2%;
+    right: 2%;
+}
+
+@media (max-width: 1000px) {
+
+    .loading-text {
+        font-size: 20px; /* Smaller font for smaller screens */
+    }
+
+    .title {
+        font-size: 1.8rem; /* Smaller font for smaller screens */
+    }
+
+    .subtitle {
+        font-size: 1.2rem; /* Smaller font for smaller screens */
+        padding: 18px;
+        border-right: 2px solid #0f0f0f;
+    }
 }
