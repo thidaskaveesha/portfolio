@@ -1,0 +1,49 @@
+/* splash_style.css */
+body {
+    font-family: "Source Code Pro", monospace;
+    font-optical-sizing: auto;
+    background-color: #FFF1E2;
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.splash-container {
+    text-align: center;
+    color: #ffffff;
+    transform-origin: center;
+}
+
+.title {
+    font-size: 4rem;
+    margin: 0;
+    color: #000000;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin: 10px 0 0;
+    color: #292929;
+    opacity: 0.8;
+    border-right: 3px solid #0f0f0f;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.loading-text{
+    font-family: "Bytesized", sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    color: #000000;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+}
