@@ -38,5 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
       scale: 1, // Scale back to normal size
       ease: "back.out(1.7)", // Pop-up effect
     },
+    "-=8"
   );
 });
