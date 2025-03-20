@@ -50,6 +50,10 @@ body {
     right: 2%;
 }
 
+.loading-text p{
+    margin: 0;
+}
+
 @media (max-width: 1200px) {
 
     .loading-text {
