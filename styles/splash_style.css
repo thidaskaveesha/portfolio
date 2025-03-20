@@ -50,7 +50,7 @@ body {
     right: 2%;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
 
     .loading-text {
         font-size: 20px; /* Smaller font for smaller screens */
@@ -62,6 +62,24 @@ body {
 
     .subtitle {
         font-size: 1.2rem; /* Smaller font for smaller screens */
+        padding: 18px;
+        border-right: 2px solid #0f0f0f;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .loading-text {
+        font-size: 16px; /* Smaller font for smaller screens */
+    }
+
+    .title {
+        font-size: 1.65rem; /* Smaller font for smaller screens */
+    }
+
+    .subtitle {
+        font-size: 1em; /* Smaller font for smaller screens */
         padding: 18px;
         border-right: 2px solid #0f0f0f;
     }
