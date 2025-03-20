@@ -38,6 +38,8 @@ body {
     word-wrap: break-word; 
     word-break: break-word; 
     white-space: normal;
+    padding-left: 18px;
+    padding-right: 18px;
 }
 
 .loading-text{
