@@ -35,13 +35,50 @@ gsap.timeline()
     ease: "power2.out",
     delay: 0.5, // Wait 1 second before executing
 })
-// After 1 second, move down to top 0%
+// After 1 second, rotate bit more
 .to(".black-pane", {
   top: "100%",
   duration: 1,
   rotationZ: 0,
   ease: "power2.out",
   delay: 1, // Wait 1 second before executing
+})
+
+// After 1 second, open content
+.to(".dashboard-content", {
+  duration: 1,
+  scale: 1,
+  opacity: 1,
+  ease: "power2.out",
+  delay: -0.7, // Wait 1 second before executing
+})
+
+.from(".dashboard-content h1", {
+  duration: 1,
+  rotationZ: -20,
+  y: 500,
+  opacity: 0,
+  ease: "power2.out",
+  delay: -0.7, // Wait 1 second before executing
+})
+
+.from(".dashboard-content p", {
+  duration: 1,
+  rotationZ: -8,
+  x: 500,
+  opacity: 0,
+  ease: "elastic.out(1, 0.3)", 
+  delay: -0.7, // Wait 1 second before executing
+})
+
+.from(".dashboard-content button", {
+  duration: 1,
+  rotationZ: 20,
+  y: 200,
+  scale: 0.5,
+  opacity: 0,
+  ease: "elastic.out(1, 0.3)", 
+  delay: -0.7, // Wait 1 second before executing
 });
 
 const img = document.getElementById('img1');
@@ -79,3 +116,4 @@ if (!isMobile) {
         onReverseComplete: () => changeImageWithShake('assets/ThidasSenavirathna2.jpg'),
     });
 }
+

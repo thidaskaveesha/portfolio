@@ -70,6 +70,8 @@ body {
   height: 100%;
   gap: 20px;
   flex-wrap: wrap;
+  opacity: 0;
+  scale: 0.5;
 }
 
 .images {
@@ -129,7 +131,7 @@ body {
 
 #goto-about:hover {
   background-color: #dad0c6;
-  scale: 1.1;
+  scale: 1.5;
 }
 
 @media (max-width: 1200px) {
@@ -149,5 +151,10 @@ body {
 
   .info-para p {
       font-size: 0.6rem;
+  }
+
+  #img1{
+    width: 260px;
+    height: 260px;
   }
 }
