@@ -43,3 +43,39 @@ gsap.timeline()
   ease: "power2.out",
   delay: 1, // Wait 1 second before executing
 });
+
+const img = document.getElementById('img1');
+
+// Function to change the image source with a shake effect
+const changeImageWithShake = (src) => {
+  // Change the image source
+  img.src = src;
+
+  // Add a shake animation
+  gsap.fromTo(
+    img,
+    { x: -10, rotation: -8 },
+    { x: 10, rotation: 4, duration: 0.1, yoyo: true, repeat: 5, ease: "power1.inOut" }
+  );
+};
+// Detect if the user is on a mobile device
+const isMobile = window.innerWidth <= 400;
+
+if (!isMobile) {
+    // Desktop: Change image on hover
+    img.addEventListener('mouseenter', () => changeImageWithShake('assets/ThidasSenavirathna.jpg'));
+    img.addEventListener('mouseleave', () => changeImageWithShake('assets/ThidasSenavirathna2.jpg'));
+} else {
+    // Mobile: Change image on scroll
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: img,
+            start: "top center",
+            end: "bottom center",
+            scrub: true,
+        }
+    }).to(img, {
+        onUpdate: () => changeImageWithShake('assets/ThidasSenavirathna.jpg'),
+        onReverseComplete: () => changeImageWithShake('assets/ThidasSenavirathna2.jpg'),
+    });
+}
