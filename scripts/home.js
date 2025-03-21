@@ -18,26 +18,28 @@ menuButton.addEventListener("click", () => {
   isOpen = !isOpen;
 });
 
-
-document.addEventListener("DOMContentLoaded", () => {
-  const timeline = gsap.timeline();
-
-  // Slide the black pane down
-  timeline.to(".black-pane", {
-    duration: 10,
-    y: "100%", // Slide it down completely
-    ease: "power4.out",
-  });
-
-  // Fade in and pop up the text after the pane animation
-  timeline.to(
-    ".dashboard-content",
-    {
-      duration: 1,
-      opacity: 1, // Fade in
-      scale: 1, // Scale back to normal size
-      ease: "back.out(1.7)", // Pop-up effect
-    },
-    "-=8"
-  );
+// GSAP Animation
+gsap.timeline()
+// Move down to top -50% with a rotationX of 8%
+.to(".black-pane", {
+    top: "-50%",
+    rotationZ: 8,
+    duration: 0.5, 
+    ease: "power2.out",
+})
+// After 1 second, move down to top 0%
+.to(".black-pane", {
+    top: "0%",
+    duration: 1,
+    rotationZ: 0,
+    ease: "power2.out",
+    delay: 0.5, // Wait 1 second before executing
+})
+// After 1 second, move down to top 0%
+.to(".black-pane", {
+  top: "100%",
+  duration: 1,
+  rotationZ: 0,
+  ease: "power2.out",
+  delay: 1, // Wait 1 second before executing
 });
