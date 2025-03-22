@@ -1,6 +1,23 @@
+// Function to disable and enable scrolling
+const disableScroll = () => {
+  if (window.scrollY === 0) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+};
+
+const enableScroll = () => {
+  document.body.style.overflow = "";
+};
+
+// Lock scrolling at the beginning
+disableScroll();
+
+// Menu Button Animation
 const menuButton = document.getElementById("menuButton");
 let isOpen = false;
-console.log("Test");
+
 const line1 = document.querySelector(".line1");
 const line2 = document.querySelector(".line2");
 const line3 = document.querySelector(".line3");
@@ -18,68 +35,82 @@ menuButton.addEventListener("click", () => {
   isOpen = !isOpen;
 });
 
-// GSAP Animation
+menuButton.addEventListener("click", () => {
+  const nav = document.querySelector(".nav");
+  if (!isOpen) {
+    gsap.to(nav, {
+      duration: 0.5, opacity: 0
+    });
+    nav.classList.add("nav-not-visible");
+  } else {
+    gsap.to(nav, {
+      duration: 0.5, opacity: 1
+    });
+    nav.classList.remove("nav-not-visible");
+  }
+});
+
+// GSAP Animation Timeline
 gsap.timeline()
-// Move down to top -50% with a rotationX of 8%
-.to(".black-pane", {
+  .to(".black-pane", {
     top: "-50%",
     rotationZ: 8,
-    duration: 0.5, 
+    duration: 0.5,
     ease: "power2.out",
-})
-// After 1 second, move down to top 0%
-.to(".black-pane", {
+  })
+  .to(".black-pane", {
     top: "0%",
     duration: 1,
     rotationZ: 0,
     ease: "power2.out",
-    delay: 0.5, // Wait 1 second before executing
-})
-// After 1 second, rotate bit more
-.to(".black-pane", {
-  top: "100%",
-  duration: 1,
-  rotationZ: 0,
-  ease: "power2.out",
-  delay: 1, // Wait 1 second before executing
-})
+    delay: 0.5,
+  })
+  .to(".black-pane", {
+    top: "100%",
+    duration: 1,
+    rotationZ: 0,
+    ease: "power2.out",
+    delay: 1,
+  })
+  .to(".dashboard-content", {
+    duration: 1,
+    scale: 1,
+    opacity: 1,
+    ease: "power2.out",
+    delay: -0.7,
+  })
+  .from(".dashboard-content h1", {
+    duration: 1,
+    rotationZ: -20,
+    y: 500,
+    opacity: 0,
+    ease: "power2.out",
+    delay: -0.7,
+  })
+  .from(".dashboard-content p", {
+    duration: 1,
+    rotationZ: -8,
+    x: 500,
+    opacity: 0,
+    ease: "elastic.out(1, 0.3)",
+    delay: -0.7,
+  })
+  .from(".dashboard-content button", {
+    duration: 1,
+    rotationZ: 20,
+    y: 200,
+    scale: 0.5,
+    opacity: 0,
+    ease: "elastic.out(1, 0.3)",
+    delay: -0.7,
+    onComplete: () => {
+      // Enable scrolling after animation ends
+      enableScroll();
+    },
+  });
 
-// After 1 second, open content
-.to(".dashboard-content", {
-  duration: 1,
-  scale: 1,
-  opacity: 1,
-  ease: "power2.out",
-  delay: -0.7, // Wait 1 second before executing
-})
-
-.from(".dashboard-content h1", {
-  duration: 1,
-  rotationZ: -20,
-  y: 500,
-  opacity: 0,
-  ease: "power2.out",
-  delay: -0.7, // Wait 1 second before executing
-})
-
-.from(".dashboard-content p", {
-  duration: 1,
-  rotationZ: -8,
-  x: 500,
-  opacity: 0,
-  ease: "elastic.out(1, 0.3)", 
-  delay: -0.7, // Wait 1 second before executing
-})
-
-.from(".dashboard-content button", {
-  duration: 1,
-  rotationZ: 20,
-  y: 200,
-  scale: 0.5,
-  opacity: 0,
-  ease: "elastic.out(1, 0.3)", 
-  delay: -0.7, // Wait 1 second before executing
-});
+// Ensure GSAP and ScrollTrigger are loaded
+gsap.registerPlugin(ScrollTrigger);
 
 const img = document.getElementById('img1');
 
@@ -99,21 +130,40 @@ const changeImageWithShake = (src) => {
 const isMobile = window.innerWidth <= 400;
 
 if (!isMobile) {
-    // Desktop: Change image on hover
-    img.addEventListener('mouseenter', () => changeImageWithShake('assets/ThidasSenavirathna.jpg'));
-    img.addEventListener('mouseleave', () => changeImageWithShake('assets/ThidasSenavirathna2.jpg'));
+  // Desktop: Change image on hover
+  img.addEventListener('mouseenter', () => changeImageWithShake('assets/ThidasSenavirathna.jpg'));
+  img.addEventListener('mouseleave', () => changeImageWithShake('assets/ThidasSenavirathna2.jpg'));
 } else {
-    // Mobile: Change image on scroll
-    gsap.timeline({
-        scrollTrigger: {
-            trigger: img,
-            start: "top center",
-            end: "bottom center",
-            scrub: true,
-        }
-    }).to(img, {
-        onUpdate: () => changeImageWithShake('assets/ThidasSenavirathna.jpg'),
-        onReverseComplete: () => changeImageWithShake('assets/ThidasSenavirathna2.jpg'),
-    });
+  // Mobile: Change image on scroll
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: img,
+      start: "top center",
+      end: "bottom center",
+      scrub: true,
+    }
+  }).to(img, {
+    onUpdate: () => changeImageWithShake('assets/ThidasSenavirathna.jpg'),
+    onReverseComplete: () => changeImageWithShake('assets/ThidasSenavirathna2.jpg'),
+  });
 }
 
+// Animation for the #about section
+gsap.timeline({
+  scrollTrigger: {
+    trigger: "#about",
+    start: "top top",
+    toggleActions: "play none none reverse",
+  },
+})
+  .fromTo(
+    ".open-pane1",
+    { y: "0%" },
+    { y: "-180%", rotation: 8, duration: 10, ease: "power2.out" }
+  )
+  .fromTo(
+    ".open-pane2",
+    { y: "0%" },
+    { y: "180%", rotation: 8, duration: 10, ease: "power2.out" },
+    "<"
+  );

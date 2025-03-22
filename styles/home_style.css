@@ -9,7 +9,7 @@ body {
 }
 
 .menu-button {
-  position: absolute;
+  position: fixed;
   top: 3%;
   right: 2%;
   width: 20px;
@@ -19,6 +19,81 @@ body {
   justify-content: space-between;
   cursor: pointer;
   z-index: 100000;
+}
+
+.nav-not-visible {
+  z-index: 10000;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0000007a;
+  z-index: 10000;
+}
+
+.nav div {
+  position: absolute;
+  border-radius: 50px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  border: 3px solid #000000;
+}
+
+.nav div:hover {
+  background-color: #dad0c6;
+  scale: 1.1;
+}
+
+.dashboard-link {
+  position: relative;
+  top: 15%;
+  left: 12%;
+  rotate: -8deg;
+}
+
+.about-link {
+  position: relative;
+  top: 25%;
+  right: 15%;
+  rotate: 15deg;
+}
+
+.projects-link {
+  position: relative;
+  bottom: 25%;
+  left: 20%;
+  rotate: -8deg;
+}
+
+.contact-link {
+  position: relative;
+  bottom: 15%;
+  right: 20%;
+  rotate: -18deg;
+}
+
+.nav a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 1.5rem;
+  font-family: "Anton", sans-serif;
+  padding: 10px;
+  display: block;
+  text-align: center;
 }
 
 .line {
@@ -45,7 +120,7 @@ body {
   top: -80%;
   left: 0;
   width: 100%;
-  height: 100%;  
+  height: 100%;
   background-color: black;
   z-index: 10;
   display: flex;
@@ -53,7 +128,7 @@ body {
   justify-content: center;
 }
 
-.black-pane h1{
+.black-pane h1 {
   color: white;
   font-size: 2rem;
   font-family: "Boldonse", system-ui;
@@ -75,11 +150,11 @@ body {
 }
 
 .images {
-  width: 300px; /* Adjust width */
-  height: 300px; /* Adjust height */
+  width: 300px;
+  height: 300px;
 }
 
-#img1{
+#img1 {
   width: 300px;
   height: 300px;
   border-radius: 20px;
@@ -134,11 +209,36 @@ body {
   scale: 1.5;
 }
 
+#about {
+  position: relative;
+  max-width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.open-pane1,
+.open-pane2 {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background-color: #000;
+}
+
+.open-pane1 {
+  top: 0;
+  left: 0;
+}
+
+.open-pane2 {
+  bottom: 0;
+  left: 0;
+}
+
 @media (max-width: 1200px) {
-  .black-pane h1{
-      font-size: 20px;
-      padding-left: 10px;
-      padding-right: 10px;
+  .black-pane h1 {
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
@@ -150,10 +250,10 @@ body {
   }
 
   .info-para p {
-      font-size: 0.6rem;
+    font-size: 0.6rem;
   }
 
-  #img1{
+  #img1 {
     width: 260px;
     height: 260px;
   }

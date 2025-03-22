@@ -7,7 +7,9 @@
     <title>Thidas Senavirathna</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Bytesized&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Boldonse&family=Bytesized&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="styles/home_style.css">
 </head>
 
@@ -18,27 +20,43 @@
         <div class="line line3"></div>
     </div>
 
+    <div class="nav nav-not-visible">
+        <div class="dashboard-link">
+            <a href="#dashboard">Dashboard</a>
+        </div>
+        <div class="about-link">
+            <a id="about-link" href="#about">About</a>
+        </div>
+        <div class="projects-link">
+            <a id="projects-link" href="#projects">Projects</a>
+        </div>
+        <div class="contact-link">
+            <a id="contact-link" href="#contact">Contact</a>
+        </div>
+    </div>
+
     <section id="dashboard">
         <div class="black-pane">
             <h1>Revealing the founder of MOZO</h1>
         </div>
         <div class="dashboard-content">
             <div class="images">
-                    <img id="img1" src="assets/ThidasSenavirathna2.jpg" alt="Thidas Senavirathna"> 
+                <img id="img1" src="assets/ThidasSenavirathna2.jpg" alt="Thidas Senavirathna">
             </div>
             <div class="info-para">
                 <h1>Thidas Senavirathna</h1>
                 <p> Software Engineer Intern @ Seylan Bank PLC </p>
-                <p> Oracle Certified AI Professional | Swimmer | Traveler</p>   
+                <p> Oracle Certified AI Professional | Swimmer | Traveler</p>
                 <button id="goto-about">Reach out &#8595;</button>
             </div>
-                
+
         </div>
     </section>
-    <section id="projects">
-
-    </section>
     <section id="about">
+        <div class="open-pane1"></div>
+        <div class="open-pane2"></div>
+    </section>
+    <section id="projects">
 
     </section>
     <section id="contact">
@@ -46,6 +64,7 @@
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="scripts/home.js"></script>
 </body>
 
