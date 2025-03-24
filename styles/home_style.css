@@ -51,11 +51,12 @@ body {
   padding: 10px 20px;
   background-color: white;
   border: 3px solid #000000;
+  transition: padding 0.3s ease;
 }
 
 .nav div:hover {
   background-color: #dad0c6;
-  scale: 1.1;
+  padding: 15px 25px;
 }
 
 .dashboard-link {
