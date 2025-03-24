@@ -46,6 +46,30 @@ menuButton.addEventListener("click", () => {
     gsap.to(nav, {
       duration: 0.5, opacity: 1
     });
+    gsap.from(".dashboard-link", {
+      duration: 0.5,
+      y: 500,
+      opacity: 1,
+      rotationZ: -320,
+    });
+    gsap.from(".about-link", {
+      duration: 1,
+      x: 500,
+      opacity: 1,
+      rotationX: -320,
+    });
+    gsap.from(".projects-link", {
+      duration: 1,
+      y: 500,
+      opacity: 1,
+      rotationY: -320,
+    });
+    gsap.from(".contact-link", {
+      duration: 1,
+      x: 500,
+      opacity: 1,
+      rotationZ: 360,
+    });
     nav.classList.remove("nav-not-visible");
   }
 });
@@ -147,23 +171,3 @@ if (!isMobile) {
     onReverseComplete: () => changeImageWithShake('assets/ThidasSenavirathna2.jpg'),
   });
 }
-
-// Animation for the #about section
-gsap.timeline({
-  scrollTrigger: {
-    trigger: "#about",
-    start: "top top",
-    toggleActions: "play none none reverse",
-  },
-})
-  .fromTo(
-    ".open-pane1",
-    { y: "0%" },
-    { y: "-180%", rotation: 8, duration: 10, ease: "power2.out" }
-  )
-  .fromTo(
-    ".open-pane2",
-    { y: "0%" },
-    { y: "180%", rotation: 8, duration: 10, ease: "power2.out" },
-    "<"
-  );

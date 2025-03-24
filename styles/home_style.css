@@ -216,7 +216,7 @@ body {
   overflow: hidden;
 }
 
-.open-pane1,
+/* .open-pane1,
 .open-pane2 {
   position: absolute;
   width: 100%;
@@ -232,7 +232,7 @@ body {
 .open-pane2 {
   bottom: 0;
   left: 0;
-}
+} */
 
 @media (max-width: 1200px) {
   .black-pane h1 {
