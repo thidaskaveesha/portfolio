@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #FFF9F7;
+  background-color: #fff7e6;
 }
 
 .menu-button {
@@ -51,12 +51,12 @@ body {
   padding: 10px 20px;
   background-color: white;
   border: 3px solid #000000;
-  transition: padding 0.3s ease;
+  transition: width 0.5s ease;
 }
 
 .nav div:hover {
   background-color: #dad0c6;
-  padding: 15px 25px;
+  width: 270px;
 }
 
 .dashboard-link {
@@ -215,6 +215,23 @@ body {
   max-width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+
+
+.text-movement {
+  position: absolute;
+  white-space: nowrap;
+  top: 50%;
+  left: 100%;
+  font-size: 5rem;
+  font-weight: bold;
+  color: #000000;
+  opacity: 1;
+}
+
+
+.another-div{
+  opacity: 0;
 }
 
 /* .open-pane1,

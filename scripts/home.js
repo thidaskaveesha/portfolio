@@ -171,3 +171,32 @@ if (!isMobile) {
     onReverseComplete: () => changeImageWithShake('assets/ThidasSenavirathna2.jpg'),
   });
 }
+
+
+// Ensure GSAP and ScrollTrigger are loaded
+gsap.registerPlugin(ScrollTrigger);
+
+// Animate text movement when the user is in the #about section
+gsap.to(".text-movement", {
+  scrollTrigger: {
+    trigger: "#about", // Trigger animation when #about is in view
+    start: "top center", // Start animation when the top of #about hits the center of the viewport
+    end: "bottom center", // End animation when the bottom of #about hits the center of the viewport
+    toggleActions: "play none none reset", // Play animation when in view, no resets
+  },
+  x: "-400%", // Move text to the left
+  duration: 50, // Duration of the animation
+  ease: "none", // Linear easing
+});
+
+// Fade in another div when the user is in the #about section
+gsap.to(".another-div", {
+  scrollTrigger: {
+    trigger: "#about", // Trigger animation when #about is in view
+    start: "top center", // Start animation when the top of #about hits the center of the viewport
+    toggleActions: "play none none reset", // Play animation when in view, no resets
+  },
+  opacity: 1, // Make the div fully visible
+  duration: 2, // Duration of the fade-in
+  ease: "power1.inOut", // Smooth easing
+});
