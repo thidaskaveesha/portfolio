@@ -233,7 +233,7 @@ function init() {
   // Load GLB Model
   loader = new THREE.GLTFLoader();
   loader.load(
-    "assets/computer.glb", // Replace with the path to your GLB file
+    "assets/document.glb", // Replace with the path to your GLB file
     (gltf) => {
       model = gltf.scene;
       scene.add(model);
@@ -260,17 +260,8 @@ function animate() {
   if (model) {
     // Rotate the model
     model.rotation.y += 0.01;
-      // Animate the scale back to 1, 1, 1 after a delay
-      gsap.to(model.scale, {
-        duration: 18,
-        x: 1,
-        y: 1,
-        z: 1,
-        ease: "power1.inOut",
-        onComplete: () => {
-          scene.remove(model); // Remove the model from the scene after animation
-      },
-    });
+    // Check and update material opacity
+    
   }
 
   renderer.render(scene, camera);
@@ -301,50 +292,19 @@ const timeline = gsap.timeline({
 });
 
 timeline
-  .from(".self", 
-    { y: 50, 
-      opacity: 0, 
-      duration: 1 
-    })
-  .from(".self1", 
-    { y: 50, 
-      opacity: 0,
-      duration: 1 
-    }, 
-      "-=0.00005")
-  .from(".self2", 
-    { y: 50, 
-      opacity: 0, 
-      duration: 1 
-    }, 
-    "-=0.00005")
-  .from(".self3", 
-    { y: 50, 
-      opacity: 0, 
-      duration: 1 
-    },
-    "-=0.00005")
-  .from(".self4", 
-    { y: 50, 
-      opacity: 0, 
-      duration: 1 
-    }, 
-    "-=0.00005")
-  .from(".self5", 
-    { y: 50, 
-      opacity: 0, 
-      duration: 1 
-    }, 
-    "-=0.00005")
-  .from(".self6", 
-    { y: 50, 
-      opacity: 0, 
-      duration: 1 
-    }, 
-    "-=0.00005")
-  .from(".self7", 
-    { y: 50,
-      opacity: 0, 
-      duration: 1 
-    }, 
-      "-=0.00005");
+.from(".self", { y: 50, opacity: 0, duration: 2 })
+//.to(".self", { opacity: 0, duration: 2 })
+.from(".self1", { y: 50, opacity: 0, duration: 2 }, "-=0.00005")
+//.to(".self1", { opacity: 0, duration: 2})
+.from(".self2", { y: 50, opacity: 0, duration: 2 }, "-=0.00005")
+//.to(".self2", { opacity: 0, duration: 2 })
+.from(".self3", { y: 50, opacity: 0, duration: 2 }, "-=0.00005")
+//.to(".self3", { opacity: 0, duration: 2 })
+.from(".self4", { y: 50, opacity: 0, duration: 2 }, "-=0.00005")
+//.to(".self4", { opacity: 0, duration: 2 })
+.from(".self5", { y: 50, opacity: 0, duration: 2 }, "-=0.00005")
+//.to(".self5", { opacity: 0, duration: 2 })
+.from(".self6", { y: 50, opacity: 0, duration: 2 }, "-=0.00005")
+//.to(".self6", { opacity: 0, duration: 2 })
+.from(".self7", { y: 50, opacity: 0, duration: 2 }, "-=0.00005")
+//.to(".self7", { opacity: 0, duration: 2 });
