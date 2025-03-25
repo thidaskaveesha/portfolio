@@ -285,3 +285,66 @@ window.addEventListener("resize", () => {
 
 // Initialize Three.js
 init();
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
+
+// Timeline for paragraph animations with ScrollTrigger
+const timeline = gsap.timeline({
+  delay: 18,
+  scrollTrigger: {
+    trigger: "#about", // Trigger animation when #about-me is in view
+    start: "top center", // Start when the top of #about-me hits the center of the viewport
+    end: "bottom center", // End when the bottom of #about-me hits the center of the viewport
+    toggleActions: "play none none reset", // Play animation, reset when out of view
+  },
+});
+
+timeline
+  .from(".self", 
+    { y: 50, 
+      opacity: 0, 
+      duration: 1 
+    })
+  .from(".self1", 
+    { y: 50, 
+      opacity: 0,
+      duration: 1 
+    }, 
+      "-=0.00005")
+  .from(".self2", 
+    { y: 50, 
+      opacity: 0, 
+      duration: 1 
+    }, 
+    "-=0.00005")
+  .from(".self3", 
+    { y: 50, 
+      opacity: 0, 
+      duration: 1 
+    },
+    "-=0.00005")
+  .from(".self4", 
+    { y: 50, 
+      opacity: 0, 
+      duration: 1 
+    }, 
+    "-=0.00005")
+  .from(".self5", 
+    { y: 50, 
+      opacity: 0, 
+      duration: 1 
+    }, 
+    "-=0.00005")
+  .from(".self6", 
+    { y: 50, 
+      opacity: 0, 
+      duration: 1 
+    }, 
+    "-=0.00005")
+  .from(".self7", 
+    { y: 50,
+      opacity: 0, 
+      duration: 1 
+    }, 
+      "-=0.00005");
