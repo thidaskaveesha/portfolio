@@ -199,7 +199,7 @@ gsap.to(".another-div", {
   opacity: 1, // Make the div fully visible
   duration: 10, // Duration of the fade-in
   ease: "power1.inOut", // Smooth easing
-  delay: 10, // Delay the start of the animation
+  delay: 5, // Delay the start of the animation
 });
 
 
@@ -262,7 +262,7 @@ function animate() {
     model.rotation.y += 0.01;
       // Animate the scale back to 1, 1, 1 after a delay
       gsap.to(model.scale, {
-        duration: 10,
+        duration: 18,
         x: 1,
         y: 1,
         z: 1,
