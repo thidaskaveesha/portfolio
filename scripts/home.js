@@ -185,7 +185,7 @@ gsap.to(".text-movement", {
     toggleActions: "play none none reset", // Play animation when in view, no resets
   },
   x: "-400%", // Move text to the left
-  duration: 50, // Duration of the animation
+  duration: 30, // Duration of the animation
   ease: "none", // Linear easing
 });
 
@@ -197,6 +197,91 @@ gsap.to(".another-div", {
     toggleActions: "play none none reset", // Play animation when in view, no resets
   },
   opacity: 1, // Make the div fully visible
-  duration: 2, // Duration of the fade-in
+  duration: 10, // Duration of the fade-in
   ease: "power1.inOut", // Smooth easing
+  delay: 10, // Delay the start of the animation
 });
+
+
+// Import Three.js and GLTFLoader
+const container = document.querySelector(".another-div");
+let scene, camera, renderer, loader, model, mixer;
+
+// Initialize Three.js Scene
+function init() {
+  // Scene
+  scene = new THREE.Scene();
+
+  // Camera
+  const fov = 75; // Field of View
+  const aspect = container.clientWidth / container.clientHeight;
+  const near = 0.1;
+  const far = 1000;
+  camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  camera.position.set(0, 1, 5);
+
+  // Renderer
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  container.appendChild(renderer.domElement);
+
+  // Light
+  const light = new THREE.AmbientLight(0xffffff, 1);
+  scene.add(light);
+
+  // Load GLB Model
+  loader = new THREE.GLTFLoader();
+  loader.load(
+    "assets/computer.glb", // Replace with the path to your GLB file
+    (gltf) => {
+      model = gltf.scene;
+      scene.add(model);
+
+      // Optional: Set initial scale, position, and rotation
+      // Set the initial scale of the model
+      model.scale.set(3, 3, 3);
+      model.position.set(0, 0, 0);
+
+      // Start the animation
+      animate();
+    },
+    undefined,
+    (error) => {
+      console.error("An error occurred while loading the GLB file:", error);
+    }
+  );
+}
+
+// Animation Loop
+function animate() {
+  requestAnimationFrame(animate);
+
+  if (model) {
+    // Rotate the model
+    model.rotation.y += 0.01;
+      // Animate the scale back to 1, 1, 1 after a delay
+      gsap.to(model.scale, {
+        duration: 10,
+        x: 1,
+        y: 1,
+        z: 1,
+        ease: "power1.inOut",
+        onComplete: () => {
+          scene.remove(model); // Remove the model from the scene after animation
+      },
+    });
+  }
+
+  renderer.render(scene, camera);
+}
+
+// Ensure responsive resizing
+window.addEventListener("resize", () => {
+  camera.aspect = container.clientWidth / container.clientHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(container.clientWidth, container.clientHeight);
+});
+
+// Initialize Three.js
+init();
