@@ -89,15 +89,16 @@ nav {
     position: relative; 
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .profile-image{
     width: auto;
-    margin-top: 60px;
+    margin-top: 40px;
     height: 85vh;
     z-index: 2;
-    position: relative;
-    left: 43%;
 }
 
 .text-container {
@@ -209,27 +210,3 @@ nav {
     }
 }
 
-
-@media (max-width: 500px) {
-    .profile-image{
-        margin-top: 80px;
-        height: 80vh;
-        left: 30%;
-    }
-}
-
-@media (max-width: 340px) {
-    .profile-image{
-        margin-top: 80px;
-        height: 80vh;
-        left: 20%;
-    }
-}
-
-@media (max-width: 240px) {
-    .profile-image{
-        margin-top: 80px;
-        height: 80vh;
-        left: 15%;
-    }
-}

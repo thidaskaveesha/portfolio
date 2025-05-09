@@ -8,6 +8,18 @@ function toggleMenu() {
 
 // Ensure GSAP is loaded
 document.addEventListener("DOMContentLoaded", () => {
+    // remove hashing from url
+    // Check if there's a hash in the URL
+    if (window.location.hash) {
+        // Get the current path and hash
+        const currentPath = window.location.pathname;
+        const hash = window.location.hash;
+
+        // Replace the hash with a clean path
+        const newPath = `${currentPath}${hash.replace('#', '/')}`;
+        history.replaceState(null, null, newPath);
+    }
+
     // Profile image animation
     gsap.from(".profile-image", {
         scale: 0.9, // Scale down to 70%
