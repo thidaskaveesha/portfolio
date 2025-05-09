@@ -64,3 +64,94 @@ document.addEventListener("DOMContentLoaded", () => {
         },
     });
 });
+
+
+// Smooth scrolling for navigation links
+document.addEventListener("DOMContentLoaded", () => {
+  const links = document.querySelectorAll('a[href^="#"]')
+
+  for (const link of links) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault()
+
+      const targetId = this.getAttribute("href")
+      const targetElement = document.querySelector(targetId)
+
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 60,
+          behavior: "smooth",
+        })
+
+        // Close mobile menu if open
+        const navList = document.querySelector(".nav-list")
+        const hamburger = document.querySelector(".hamburger")
+        if (navList.classList.contains("active")) {
+          navList.classList.remove("active")
+          hamburger.classList.remove("active")
+        }
+      }
+    })
+  }
+
+  // Animation for skill cards
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate")
+        }
+      })
+    },
+    { threshold: 0.1 },
+  )
+
+  document.querySelectorAll(".skill-card").forEach((card) => {
+    observer.observe(card)
+  })
+
+  document.querySelectorAll(".project-card").forEach((card) => {
+    observer.observe(card)
+  })
+})
+
+// Form submission handling
+const contactForm = document.getElementById("contact-form")
+if (contactForm) {
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    // Get form data
+    const name = document.getElementById("name").value
+    const email = document.getElementById("email").value
+    const message = document.getElementById("message").value
+
+    // Here you would typically send the data to a server
+    // For now, we'll just show a success message
+    const formGroups = document.querySelectorAll(".form-group")
+    formGroups.forEach((group) => {
+      group.style.display = "none"
+    })
+
+    document.querySelector(".submit-btn").style.display = "none"
+
+    const successMessage = document.createElement("div")
+    successMessage.className = "success-message"
+    successMessage.textContent = `Thanks ${name}! Your message has been sent successfully.`
+    successMessage.style.color = "green"
+    successMessage.style.padding = "20px"
+    successMessage.style.textAlign = "center"
+
+    contactForm.appendChild(successMessage)
+
+    // Reset form after 5 seconds
+    setTimeout(() => {
+      contactForm.reset()
+      formGroups.forEach((group) => {
+        group.style.display = "block"
+      })
+      document.querySelector(".submit-btn").style.display = "block"
+      successMessage.remove()
+    }, 5000)
+  })
+}

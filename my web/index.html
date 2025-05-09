@@ -16,10 +16,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Boldonse&family=Bytesized&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="src/logo.ico" type="image/x-icon">
 </head>
 <body>
+    <div class="main">
     <nav role="navigation" class="nav">
         <img src="src/Logo.png" alt="Logo" class="navLogo">
         <div class="hamburger" onclick="toggleMenu()">
@@ -36,7 +38,7 @@
         <button class="recruiteBtn" aria-label="Contact me for recruitment">Recruite Me</button>
     </nav>
 
-    <div class="home">
+    <div class="home" id="home">
         <div class="content">
             <img src="src/HomeImage.png" alt="Thidas Kaveesha Senavirathna" class="profile-image">
             <div class="text-container">
@@ -44,18 +46,135 @@
                 <h1 class="last-name">Senavirathna</h1>
             </div>
         </div>
-        <button class="aboutBtn"> About Me </button>
-    </div>
-    <div class="about">
-
-    </div>
-    <div class="projects">
-
-    </div>
-    <div class="contact">
-
+        <a href="#about"> <button class="aboutBtn"> About Me </button></a>
     </div>
 
+    <div id="about" class="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Hello! I'm Thidas Senavirathna, a passionate designer and developer dedicated to creating innovative digital experiences. With a background in both design and development, I bring a unique perspective to every project, combining aesthetic sensibility with technical expertise.</p>
+                <p>I specialize in UI/UX design, web development, and creating engaging user experiences. My goal is to craft solutions that are not only visually appealing but also functional and user-friendly.</p>
+            </div>
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/my%20tiles%20%281%29.jpg-HVJQhJ6USr4VHmXEVfn4IH9O6vz4w9.jpeg" alt="Thidas Senavirathna" class="about-image">
+            <div class="skills-container">
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3 class="skill-title">UI/UX Design</h3>
+                    <p>Creating intuitive and engaging user interfaces</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <h3 class="skill-title">Web Development</h3>
+                    <p>Building responsive and dynamic websites</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="skill-title">Mobile Development</h3>
+                    <p>Developing cross-platform mobile applications</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon"><i class="fas fa-cubes"></i></div>
+                    <h3 class="skill-title">3D Modeling</h3>
+                    <p>Creating engaging 3D models and animations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects" class="projects">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <img src="/placeholder.svg?height=200&width=300" alt="Project 1" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">E-Commerce Platform</h3>
+                    <p class="project-description">A fully responsive e-commerce platform with user authentication, product management, and payment integration.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="/placeholder.svg?height=200&width=300" alt="Project 2" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Portfolio Website</h3>
+                    <p class="project-description">A modern portfolio website showcasing creative work with smooth animations and responsive design.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="/placeholder.svg?height=200&width=300" alt="Project 3" class="project-image">
+                <div class="project-content">
+                    <h3 class="project-title">Task Management App</h3>
+                    <p class="project-description">A productivity app for managing tasks, setting deadlines, and tracking progress with team collaboration features.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link">Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/my%20tiles%20%283%29.jpg-NBAsvCAJppgEJ9eQmxMZOkptSULTuN.jpeg" alt="Thidas Senavirathna" class="contact-image">
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <p>thidaskaveesha@gmail.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <p>Sri Lanka</p>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/thidaskaveesha/" class="social-link" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://www.instagram.com/designer_thidaz/" class="social-link" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-link" target="_blank" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>&copy; 2023 Thidas Senavirathna. All rights reserved.</p>
+    </footer>
+    </div>
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </body>
